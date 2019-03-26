@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="static/fonts/themify-icons/themify-icons.css">
+		<!-- Vendors-->
+		<!--<link rel="stylesheet" type="text/css" href="static/vendors/bootstrap4/bootstrap-grid.min.css">-->
+		<link rel="stylesheet" type="text/css" href="static/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="static/vendors/owl.carousel/owl.carousel.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+		<link rel="stylesheet" type="text/css" href="static/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+
+	</head>
+	
+	<body>
+		<div class="page-wrap">
+			
+			<!-- header -->
+			<header class="header header__style-02">
+				<div class="container">
+					<div class="header__logo"><a href="home.html"></a></div>
+					<!-- consult-nav -->
+					<nav class="consult-nav">
+						新闻评估系统
+						<!-- consult-menu -->
+						<ul class="consult-menu">
+							<li class="current-menu-item" style="font-size: 16"><a href="index.html">首页</a></li>
+							<li><a href="#">评估结果</a></li>
+							<li><a href="/list.html">新闻列表</a></li>
+						</ul><!-- consult-menu -->
+						
+						<div class="navbar-toggle"><span></span><span></span><span></span></div>
+					</nav><!-- End / consult-nav -->
+					
+				</div>
+			</header><!-- End / header -->
+			
+
+			<!-- Content-->
+			<div class="md-content">
+
+
+
+				<section class="md-section md-skin-dark js-consult-form" style="background-image: url('static/img/slider.jpg');">
+					<div class="md-overlay">
+						
+					</div>
+					<div class="container">
+						<!-- form-01 -->
+						<div class="form-01 consult-form js-consult-form__content">
+							<h2 class="form-01__title">请输入想要评估的新闻内容</h2>
+							<form class="form-01__form" action='/re/' method="post" onsubmit="return checkall()">
+								<div class="form__item">
+									<textarea rows="3" name="news_content" placeholder="示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！" value="请输入新闻内容" id= "news_content"></textarea>
+								</div>
+								<div class="form__button"><input type="submit" class="btn btn-primary btn-w180" value="点击评估"/>
+								</div>
+							</form>
+						</div><!-- End / form-01 -->
+						
+					</div>
+				</section>
+
+
+				<section class="md-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-lg-8 offset-0 offset-sm-0 offset-md-2 offset-lg-2 ">
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+			</div>
+			<!-- End / Content-->
+			
+			<!-- footer -->
+			<footer class="footer">
+				
+				<div class="footer__copyright">2019 &copy; Copyright ICTMCG. All rights Reserved.</div>
+			</footer><!-- End / footer -->
+			
+		</div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="static/vendors/_jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countUp/jquery.countup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+		<script type="text/javascript" src="static/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/owl.carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="static/vendors/menu/menu.min.js"></script>
+		<!--<script type="text/javascript" src="static/vendors/smoothscroll/SmoothScroll.min.js"></script>-->
+		<!-- App-->
+		<script type="text/javascript" src="static/js/main.js"></script>
+	</body>
+
+<script type="text/javascript">
+	function checkall(){
+	var name = $.trim($("#news_content").val());
+	console.log(name);
+	if(name == ""){
+		$('#news_content').val($("#news_content").attr('placeholder'));
+	    //alert("新闻内容不可为空");
+	    //$("#news_content").focus();
+
+	    //return false;
+	}
+}
+
+</script>
+</html>

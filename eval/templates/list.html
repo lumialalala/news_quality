@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="static/fonts/themify-icons/themify-icons.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="static/vendors/bootstrap4/bootstrap-grid.min.css">
+		<link rel="stylesheet" type="text/css" href="static/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="static/vendors/owl.carousel/owl.carousel.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="static/css/main.css"/>
+  		<link rel="stylesheet" type="text/css" href="static/css/animate.css"/>
+		
+		<link rel="stylesheet" type="text/css" href="static/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+
+	 <style type="text/css">
+		.holder {
+			margin: 15px 0;
+		}
+		.holder a {
+			font-size: 12px;
+			cursor: pointer;
+			margin: 0 5px;
+			color: #333;
+		}
+		.holder a:hover {
+			background-color: #222;
+			color: #fff;
+		}
+		.holder a.jp-previous { margin-right: 15px; }
+		.holder a.jp-next { margin-left: 15px; }
+		.holder a.jp-current, a.jp-current:hover {
+			color: #FF4242;
+			font-weight: bold;
+		}
+		.holder a.jp-disabled, a.jp-disabled:hover {
+			color: #bbb;
+		}
+		.holder a.jp-current, a.jp-current:hover,
+		.holder a.jp-disabled, a.jp-disabled:hover {
+			cursor: default;
+			background: none;
+		}
+		.holder span { margin: 0 5px; }
+	</style>
+	</head>
+	
+	<body>
+		<div class="page-wrap">
+			
+			<!-- header -->
+			<header class="header header__style-02" style="background-color: #1a1a23">
+				<div class="container">
+					
+					<!-- consult-nav -->
+					<nav class="consult-nav">
+						
+						<!-- consult-menu -->
+						<ul class="consult-menu">
+							<!--<li><a href="/index.html">首页</a></li>-->
+							
+							<li class="current-menu-item"><a href="/list.html">新闻列表</a></li>
+							<li ><a href="/re2.html">评估结果</a></li>
+						</ul><!-- consult-menu -->
+						
+						<div class="navbar-toggle"><span></span><span></span><span></span></div>
+					</nav><!-- End / consult-nav -->
+					
+				</div>
+			</header><!-- End / header -->
+
+
+
+			<div class = "row" style="margin-top:10px;">
+				<div class = 'col-md-1'  ></div>
+				<div class = 'col-md-10' >
+					
+					<div class="panel panel-default">
+					  <!-- Default panel contents -->
+						<div class="panel-heading">Panel heading</div>
+						<div class="panel-body">
+					    	<p>...</p>
+						</div>
+
+					  <!-- Table -->
+					  	
+						
+						<table class="table table-striped">
+					    <thead>
+					        <tr>
+					        <th>编号</th>
+					        <th>内容</th>
+					        <th>评估时间</th>
+					        <th>得分</th>
+					        <th>查看</th>
+					        <th>删除</th>
+					        </tr>
+					    </thead>
+					    <tbody id = "itemContainer">
+					    {% for each in re %}
+					        <tr>
+					          <td>{{each.news_id}}</th>
+					          <td id={{each.news_id}} title={{each.content}} val={{each.score}} >{{each.content}}</td>
+					          <td>{{each.timeStamp}}</td>
+					          <td>{{each.score}}</td>
+					          <td>
+					          	<input type="button" value="查看" onclick="evaluateFn({{each.news_id}})" />
+								 
+					          </td>
+					          <td><input type="button" value="删除" onclick="deleteFn({{each.news_id}})" /></td>
+					        </tr>
+					    {% endfor %}
+					    </tbody>
+
+					    </table>
+					    
+					</div>
+					<div ><div class="holder" style="margin:auto; width: 400px"></div></div>
+				</div>
+				<div class = 'col-md-1'></div>
+
+
+			</div>
+			
+			<!-- Content-->
+			
+
+
+				
+				
+			</div>
+			<!-- End / Content-->
+			
+			<!-- footer -->
+			<footer class="footer">
+				
+				<div class="footer__copyright">2019 &copy; Copyright ICTMCG. All rights Reserved.</div>
+			</footer><!-- End / footer -->
+			
+		</div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="static/vendors/_jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countUp/jquery.countup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+		<script type="text/javascript" src="static/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/owl.carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="static/vendors/menu/menu.min.js"></script>
+		<script type="text/javascript" src="static/vendors/smoothscroll/SmoothScroll.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="static/js/main.js"></script>
+		<script src="static/js/jPages.min.js"></script>
+	</body>
+</html>
+<script type="text/javascript">
+function evaluateFn(w){
+	//var t = $.trim($('#'+w).text());
+	var t = $.trim($('#'+w).attr('title'));
+	var v = $.trim($('#'+w).attr('id'));
+	//alert(v);
+	 //window.location.href='re2.html?text='+t;
+	window.open('re2.html?text='+t+'&news_id='+v);
+	 
+	}
+
+function deleteF2(w){
+	var v = $.trim($('#'+w).attr('id'));
+	window.location.href='/re2/delete?news_id='+v;
+	console.log("删除成功！")
+	alert("删除成功！")
+}
+
+function deleteFn(w){
+	var v = $.trim($('#'+w).attr('id'));
+ 	if(confirm("您确定要删除么？")){
+		window.location.href='/re2/delete?news_id='+v;
+		console.log("删除成功！")
+		alert("删除成功！")
+	}
+}
+
+var win_sub;
+var evalval;
+function evaluateFn2(w,f){
+	var v = $.trim($('#'+w).attr('val'));
+	var t = $.trim($('#'+w).attr('title'));
+	v = v || 0;
+	evalval = w+'@_@'+v+'@_@'+t;
+	if(f){//right
+		if(win_sub){     
+			win_sub.focus();
+			win_sub.setEvalValFn('right');
+		}else{
+			win_sub = window.open('re2.html','win_sub');
+			win_sub.onload = function() {
+				win_sub.setEvalValFn('right');
+		 	};
+		}
+	}else{//left
+		if(win_sub){     
+			win_sub.focus();
+			win_sub.setEvalValFn();
+		}else{
+			win_sub = window.open('re2.html','win_sub');
+			win_sub.onload = function() {
+				win_sub.setEvalValFn();
+		 	};
+		}
+	}
+}
+
+$(function(){
+	$("div.holder").jPages({
+	  containerID : "itemContainer",
+	  first: " 首页 ",
+	  last: " 尾页 ",
+	  previous : " 上页 ",
+	  next : " 下页 ",
+	  perPage : 20,
+	  delay : 10
+	});
+});
+
+</script>

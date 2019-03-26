@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Compare</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!-- Fonts-->
+		<link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="static/fonts/themify-icons/themify-icons.css">
+		<!-- Vendors-->
+		<link rel="stylesheet" type="text/css" href="static/vendors/bootstrap4/bootstrap-grid.min.css">
+		<link rel="stylesheet" type="text/css" href="static/vendors/magnific-popup/magnific-popup.min.css">
+		<link rel="stylesheet" type="text/css" href="static/vendors/owl.carousel/owl.carousel.css">
+		<!-- App & fonts-->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i&amp;amp;subset=latin-ext">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="static/css/main.css"><!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		<div class="page-wrap">
+			
+			<!-- header -->
+			<header class="header header__style-02" style="background-color: #1a1a23">
+				<div class="container">
+					
+					<!-- consult-nav -->
+					<nav class="consult-nav">
+						
+						<!-- consult-menu -->
+						<ul class="consult-menu">
+							<!--<li><a href="/index.html">首页</a></li>-->
+							
+							<li><a href="/list.html">新闻列表</a></li>
+							<li class="current-menu-item"><a href="/re2.html">评估结果</a></li>
+						</ul><!-- consult-menu -->
+						
+						<div class="navbar-toggle"><span></span><span></span><span></span></div>
+					</nav><!-- End / consult-nav -->
+					
+				</div>
+			</header><!-- End / header -->
+
+
+
+			<div class = "row" style="margin-top:10px;">
+				<div class = 'col-md-1'  ></div>
+				<div class = 'col-md-10' >
+					
+					<section class="md-section" style="padding-top:100px; padding-bottom:0px">
+						<div class="container" style="display:none;">
+							<div class="jumbotron" style="padding-left: 20px; padding-right: :20px">
+								<h2>新闻内容</h2>
+								<p></p>
+ 							</div>
+						</div>
+						
+						<div class="form-01 consult-form js-consult-form__content col-md-6 " style="padding:20px 20px;float:left">
+							<h2 class="form-01__title" style="margin-bottom:30px;">请输入新闻内容</h2>
+							<form class="" >
+								<div class="form__item">
+									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_left"></textarea>
+									<input id ="news_id_left" value="" type="hidden"></input>
+								</div>
+								<div class="form__button">
+									<input type="button" id="btn_left" class="btn btn-primary btn-w180" value="修改并评估" onclick="newsFn()" style="font-size:18px;"/>
+
+								</div>
+
+							</form>
+							
+							<div class="container" style="margin-top:10px;float:left;width:100%;padding:0">
+								<div id="div_res_left" class="jumbotron" style="padding: 20px; ">
+									<h2 >评估得分</h2>
+									<p id="p_all_left" style="font-weight: 50">整体得分:</p>
+														
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">可读性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.1}};">
+									  {{scores.1}}
+
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">逻辑性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.2}};">
+									  {{scores.2}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">可信性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.3}};">
+									  {{scores.3}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">专业性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.4}};">
+									  {{scores.4}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">交互性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.5}};">
+									  {{scores.5}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">有趣度</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.6}};">
+									  {{scores.6}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">动人性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.7}};">
+									  {{scores.7}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">完整性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.8}};">
+									  {{scores.8}}
+									
+									  </div>
+									</div>
+								</div>
+								
+								<div id="div_ds_left" class="jumbotron" style="padding: 20px;display:; ">
+								 
+									<form class="" style="font-size: 20px">
+										请根据您的感受，对评估得分进行打分：
+										<div class="form__button" style="font-size:18px;height:40px;line-height:40px;;padding:0px;">
+											评估得分偏高&nbsp;<input type="radio" name="rd_satisfaction" value="0"  />&nbsp;&nbsp;
+											评估得分适中&nbsp;<input type="radio" name="rd_satisfaction" value="1" checked/>&nbsp;&nbsp;
+											评估得分偏低&nbsp;<input type="radio" name="rd_satisfaction" value="2" />
+											<input type="button" id="btn_ds_right" class="btn btn-primary btn-w180" value="提交" onclick="postSatisfactionFN('right')" style="font-size:18px;min-width:80px;height:35px;line-height:35px;"/>
+											
+										</div>
+									</form>
+									 
+								</div>
+							
+							</div>
+							
+							
+						</div>
+						
+						<div class="form-01 consult-form js-consult-form__content  col-md-6" style=" padding:20px 20px;float:left;margin-left:0px;">
+							<h2 class="form-01__title" style="margin-bottom:30px;">请输入新闻内容</h2>
+							<form class="" >
+								<div class="form__item">
+									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_right"></textarea>
+								</div>
+								<div class="form__button"><input id="btn_right" type="button" class="btn btn-primary btn-w180" value="提交评估" onclick="newsFn('right')" style="font-size:18px;"/>
+								<input id ="news_id_right" value="" type="hidden"></input>
+								</div>
+							</form>
+							
+							<div class="container" style="margin-top:10px;float:left;width:100%;padding:0">
+								<div id="div_res_right" class="jumbotron" style="padding: 20px; ">
+									<h2 >评估得分</h2>
+									<p id="p_all_right" style="font-weight: 50">整体得分:</p>
+														
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">可读性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.1}};">
+									  {{scores.1}}
+
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">逻辑性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.2}};">
+									  {{scores.2}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">可信性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.3}};">
+									  {{scores.3}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">专业性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.4}};">
+									  {{scores.4}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">交互性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.5}};">
+									  {{scores.5}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">有趣度</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.6}};">
+									  {{scores.6}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">动人性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.7}};">
+									  {{scores.7}}
+									
+									  </div>
+									</div>
+									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">完整性</p>
+									<div class="progress">
+									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.8}};">
+									  {{scores.8}}
+									
+									  </div>
+									</div>
+								</div>
+								
+								<div id="div_ds_right" class="jumbotron" style="padding: 20px;display:; ">
+								 
+									<form class="" style="font-size: 20px">
+										请根据您的感受，对评估得分进行打分：
+										<div class="form__button" style="font-size:18px;height:40px;line-height:40px;;padding:0px;">
+											评估得分偏高&nbsp;<input type="radio" name="rd_satisfaction" value="0"  />&nbsp;&nbsp;
+											评估得分适中&nbsp;<input type="radio" name="rd_satisfaction" value="1" checked/>&nbsp;&nbsp;
+											评估得分偏低&nbsp;<input type="radio" name="rd_satisfaction" value="2" />
+											<input type="button" id="btn_ds_right" class="btn btn-primary btn-w180" value="提交" onclick="postSatisfactionFN('right')" style="font-size:18px;min-width:80px;height:35px;line-height:35px;"/>
+											
+										</div>
+									</form>
+									 
+								</div>
+							
+							</div>
+							
+						</div>
+												
+					</section>
+					<section class="md-section" style="padding-top:0px; padding-bottom:0px">
+						
+					</section>
+
+				</div>
+				<div class = 'col-md-1'></div>
+
+
+			</div>
+			
+			<!-- Content-->
+			
+
+
+				
+				
+			</div>
+			<!-- End / Content-->
+			
+			<!-- footer -->
+			<footer class="footer">
+				
+				<div class="footer__copyright">2019 &copy; Copyright ICTMCG. All rights Reserved.</div>
+			</footer><!-- End / footer -->
+			
+		</div>
+		<!-- Vendors-->
+		<script type="text/javascript" src="static/vendors/_jquery/jquery.min.js"></script>
+		<script type="text/javascript" src="static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/isotope-layout/isotope.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countdown/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countTo/jquery.countTo.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.countUp/jquery.countup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.matchHeight/jquery.matchHeight.min.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.mb.ytplayer/jquery.mb.YTPlayer.min.js"></script>
+		<script type="text/javascript" src="static/vendors/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="static/vendors/masonry-layout/masonry.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/owl.carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="static/vendors/menu/menu.min.js"></script>
+		<script type="text/javascript" src="static/vendors/smoothscroll/SmoothScroll.min.js"></script>
+		<!-- App-->
+		<script type="text/javascript" src="static/js/main.js"></script>
+	</body>
+</html>
+<script type="text/javascript">
+
+	function getUrlParms(name) {
+	   
+		var str=location.href; //取得整个地址栏
+		var num=str.indexOf("?") 
+		if(num>=0){
+		   str=str.substr(num+1); //取得所有参数
+		   str=str.replace(name+'=','');
+		   //alert(str)
+			   return str;
+		}
+	} 
+
+	function getNewsParmsFn() {
+
+		var str=location.href; //取得整个地址栏
+		
+		var num=str.indexOf("?text=");
+		//console.log("bbbbbbbbbbb")
+		//console.log(num);
+
+		if(num>=0){
+		str=str.substr(num+5); //取得所有参数
+			str=str.replace(name+'=','');
+			//console.log("aaaaaaaaaaaaaa");
+			//console.log(str);
+			return str;
+		}
+		return null;
+	} 
+
+	$(document).ready(function(){
+		initFN();
+	});
+
+	//-------------------------------
+	function initFN(){
+		var t = getNewsParmsFn();
+	
+		if(t){
+			var news_id = t.split('&news_id=')[1];
+			
+			t = t.split('&news_id=')[0];
+			//var p_arr= t.split('&text=')[0].split('-');
+			$('#news_content_left').html(decodeURIComponent(t));
+			$('#news_id_left').val(news_id);
+			//console.log($('#news_id_left').val())
+			//$('#zzp_left').val('转发数：'+p_arr[0]+' 评论数：'+p_arr[1]+' 点赞数：'+p_arr[2]);
+			newsFn();
+		}
+	}
+	
+	function setEvalValFn(f){
+		f=f||'left';
+		//alert(v+'---'+f);
+		if(window.opener){
+			console.log(window.opener.evalval);
+			var evalval = window.opener.evalval;
+			if(evalval){
+				var e_arr = evalval.split('@_@');//id,content,forward,comment,praise
+				
+				// id...
+				$('#news_content_'+f).html(e_arr[2]);
+				$("#news_id_"+f).val(e_arr[0]);
+				//$('#zzp_'+f).val('转发数：'+e_arr[1]+' 评论数：'+e_arr[2]+' 点赞数：'+e_arr[3]);
+				newsFn(f);
+			}
+		}
+	}
+
+	function resetFn(f){
+		//$('#zzp_'+f).val('');
+		//$('#news_id_'+f).val('')
+		$('#div_res_'+f+' .progress-bar').each(function(idx){
+			//console.log('--'+list[idx+1]);
+			$(this).html(0).css('width','0%');
+		});
+		
+		//...
+		//alert($("#div_ds_"+f+" input[name=rd_satisfaction]:first").val())
+		$("#div_ds_"+f+" input[name=rd_satisfaction]:first").prop('checked','true');
+	}
+
+	function newsFn(f){
+		f = f || 'left';
+		var name = $.trim($("#news_content_"+f).val());
+		var news_id = $.trim($("#news_id_"+f).val());
+		//console.log(news_id);
+		if(name == ""){
+		    alert("新闻内容不可为空");
+		    $("#news_content_"+f).focus();
+		    return  ;
+		}
+		$("#btn_"+f).attr("disabled",true); 
+			
+		var _url = 're2'; 
+		if(name)
+			_url +='?name='+encodeURIComponent(name);
+		console.log("aaaa")
+		console.log(_url)
+		if(news_id)
+			_url +='&news_id='+encodeURIComponent(news_id);
+
+		console.log(_url);
+		console.log("bbbbb");
+		
+		resetFn(f);
+		
+		$.ajax({
+			url : _url,
+			dataType : "json",
+			cache : false,
+				beforeSend:function(){
+			 
+				},
+				success : function(data) {
+					console.log(eval(data));
+					//$("#btn_"+f).attr("disabled",false);
+					$("#btn_"+f).removeAttr("disabled");
+					
+					//obj_nc_arr = new Array();
+					var	_list_html='';
+					var list = eval(data);
+					$('#div_res_'+f+' #p_all_'+f).html('整体得分:'+list[0]);
+					
+					$('#div_res_'+f+' .progress-bar').each(function(idx){
+						 console.log('--'+list[idx+1]);
+					 
+						 $(this).html(list[idx+1]).css('width',list[idx+1+8]);
+						
+			 
+						
+					});
+					_list_html +='';
+					
+					//alert(_list_html);
+				}
+		});
+	}
+	
+	function postSatisfactionFN(f){
+	 
+		f = f|| 'left';
+	 
+	 	var news_id = $.trim($("#news_id_"+f).val());
+		var ds = $.trim($("#div_ds_"+f+" input[name=rd_satisfaction]:checked").val());
+		console.log(ds);
+	   
+		console.log("dssssa")
+		$("#div_ds_"+f+" input[type=button]").attr("disabled",true); 
+		//resetFn(f);
+		//return;
+		
+		var _url = 're2/getFB'; 
+			_url +='?fb='+ds;
+			_url +='&news_id='+news_id;
+		console.log(_url)
+		$.ajax({
+
+				url : _url,
+				dataType : "json",
+				cache : false,
+				beforeSend:function(){
+			 	},
+			 	
+				success : function(data) {
+					console.log(data);
+					$("#div_ds_"+f+" input[type=button]").removeAttr("disabled");
+									 
+					alert('您的反馈是我们进步最大的动力，谢谢您的支持！！');
+			   
+				}
+		});
+
+	}
+
+
+</script>
