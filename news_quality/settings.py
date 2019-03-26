@@ -32,7 +32,7 @@ SECRET_KEY = 'ub=fey&q@_(ur$$*4yt$+n+c&evuq8i!v@8ddb3iom^pzf6-n#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = "*"
 
 
 # Application definition
@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'news_quality.wsgi.application'
 #更改默认的数据库连接，将原有数据库设置为空串
 MONGODB_DATABASES = {
     "default":{
-        "name":"news",
+        "name":"test",
         "host":"127.0.0.1",
     }
 }
