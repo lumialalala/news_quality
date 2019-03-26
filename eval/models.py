@@ -5,7 +5,7 @@ from news_quality.settings import DBNAME
 # Create your models here.
 connect(DBNAME)
 class News(Document):
-	meta = {"collection":"test"}
+	meta = {"collection":"news_quality"}
 	#新闻ID
 	news_id = IntField()
 	#新闻内容
