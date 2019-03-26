@@ -33,8 +33,24 @@ def re(request):
 	return render(request, 're.html')
 
 def getNews(request):
-	# 将从数据库中读文件改为从数据库中读文件
-	return render(request, 'list.html', {"show_title": "所有新闻信息", "re": News.objects.all()})
+	news_size = News.objects.all().count()
+	logging.debug("news_size")
+	logging.debug(news_size)
+	news = News.objects.all().order_by("-timeStamp")
+	logging.debug(news[0])
+	
+	
+
+	
+	No = np.arange(1,news_size+1)
+	
+	result = []
+	for i in range(0,len(No)):
+		temp =[i+1,news[i]]
+		result.append(temp)
+	#result = {'No':No, 'news':news}
+	# 从数据库中读文件
+	return render(request, 'list.html', {"show_title": "所有新闻信息", "re": result})
 	#.order_by("-news_id")
 
 
@@ -44,8 +60,7 @@ def deleteNews(request):
 	news = News.objects(news_id=news_id)
 	for n in news:
 		n.delete()
-
-	return HttpResponseRedirect('/')
+	return HttpResponseRedirect('/list.html')
 	#return render(request, 'list.html', {"show_title": "所有新闻信息", "re": News.objects.all()})
 
 
@@ -131,6 +146,9 @@ def ajax_list(request):
 
 	t = datetime.now()
 	timestamp = t.strftime('%Y-%m-%d %H:%M:%S')
+	exp= "示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！"
+	if(content == exp):
+		return JsonResponse(json.dumps(result), content_type='application/json',safe = False)
 	# 如果news_id已经存在，则对该数据进行更新，防止某些字段不存在
 	
 	if(news_id):

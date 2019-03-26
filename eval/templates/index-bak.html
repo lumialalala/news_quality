@@ -30,19 +30,15 @@
 					<div class="header__logo"><a href="home.html"></a></div>
 					<!-- consult-nav -->
 					<nav class="consult-nav">
-				 
-						 
+						新闻评估系统
 						<!-- consult-menu -->
-						<ul class="consult-menu" style="">
-							<li class="current-menu-item" style="font-size: 16;">
-								<a style="  font-size:28px;margin-bottom:0px;margin-right:450px;font-weight:400;font-family:SimHei    ">
-						新闻质量评估系统</a></li>
-							<li class="current-menu-item" style="font-size: 16;"><a href="index.html" >首页</a></li>
-							<li><a href="/re2.html">评估结果</a></li>
-							<li><a href="/list.html">评估历史</a></li>
+						<ul class="consult-menu">
+							<li class="current-menu-item" style="font-size: 16"><a href="index.html">首页</a></li>
+							<li><a href="#">评估结果</a></li>
+							<li><a href="/list.html">新闻列表</a></li>
 						</ul><!-- consult-menu -->
-					 
-						<div class="navbar-toggle"></div>
+						
+						<div class="navbar-toggle"><span></span><span></span><span></span></div>
 					</nav><!-- End / consult-nav -->
 					
 				</div>
@@ -61,14 +57,12 @@
 					<div class="container">
 						<!-- form-01 -->
 						<div class="form-01 consult-form js-consult-form__content">
-							<h2 class="form-01__title">新闻质量评估系统</h2>
-							
-							<div class="" style="color:#1f1c2f;float:left;height:30px;line-height:30px;font-size:18px;margin-bottom:10px;margin-left:-15px;">请输入要评估的新闻内容:</div>
-							<form class="form-01__form" method="post" onsubmit="checkall()">
-								<div class="form__item" style="padding:0">
-									<textarea rows="5" name="news_content" placeholder="示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！" value="请输入新闻内容" id= "news_content"  style="padding:0;line-height:30px"></textarea>
+							<h2 class="form-01__title">请输入想要评估的新闻内容</h2>
+							<form class="form-01__form" action='/re/' method="post" onsubmit="return checkall()">
+								<div class="form__item">
+									<textarea rows="3" name="news_content" placeholder="示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！" value="请输入新闻内容" id= "news_content"></textarea>
 								</div>
-								<div class="form__button"><input type="submit" class="btn btn-primary btn-w180" style="font-size:18px;" value="点击评估"/>
+								<div class="form__button"><input type="submit" class="btn btn-primary btn-w180" value="点击评估"/>
 								</div>
 							</form>
 						</div><!-- End / form-01 -->
@@ -117,27 +111,17 @@
 	</body>
 
 <script type="text/javascript">
-function checkall(){
+	function checkall(){
 	var name = $.trim($("#news_content").val());
 	console.log(name);
 	if(name == ""){
-		$('#news_content').val($("#news_content").attr('placeholder'));
-	    //alert("新闻内容不可为空");
-	    //$("#news_content").focus();
+		//$('#news_content').val($("#news_content").attr('placeholder'));
+	    alert("新闻内容不可为空");
+	    $("#news_content").focus();
 
-	    //return;
+	    return ;
 	}
-	var t = $.trim($("#news_content").val());
-	window.open('re2.html?text='+t);
 }
-function evaluateFn(w){
-	//var t = $.trim($('#'+w).text());
-	var t = $.trim($('#'+w).attr('title'));
-	var v = $.trim($('#'+w).attr('id'));
-	//alert(v);
-	 //window.location.href='re2.html?text='+t;
-	window.open('re2.html?text='+t+'&news_id='+v);
-	 
-	}
+
 </script>
 </html>

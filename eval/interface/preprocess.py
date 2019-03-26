@@ -9,7 +9,7 @@ import gensim
 """加载停用词表，返回list数据"""
 def load_stopwords():
     stopwords_list = []
-    f = open("/media/Data/yangyuting/newsPopularity/data/stopwords.txt", "r")
+    f = open(os.getcwd()+"/static/file/stopwords.txt", "r")
     for line in f:
         stopwords_list.append(line.strip())
     f.close()

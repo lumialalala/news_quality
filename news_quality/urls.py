@@ -35,7 +35,7 @@ urlpatterns = [
 
     #对比评估框的路由
     path(r're2.html',eval_views.compare),
-    path(r're2',eval_views.ajax_list),
+    path(r're2/',eval_views.ajax_list),
     
     #列表页的路由
     path(r'list.html',eval_views.getNews, name = "news_list"),

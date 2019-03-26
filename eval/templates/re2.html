@@ -34,10 +34,12 @@
 						
 						<!-- consult-menu -->
 						<ul class="consult-menu">
-							<!--<li><a href="/index.html">首页</a></li>-->
-							
-							<li><a href="/list.html">新闻列表</a></li>
+							<li class="current-menu-item" class="" style="font-size: 16;">
+								<a style="  font-size:28px;margin-bottom:0px;margin-right:450px;font-weight:400;font-family:SimHei ">
+						新闻质量评估系统</a></li>
+							<li style="font-size: 16;"><a href="index.html" >首页</a></li>
 							<li class="current-menu-item"><a href="/re2.html">评估结果</a></li>
+							<li><a href="/list.html">评估历史</a></li>
 						</ul><!-- consult-menu -->
 						
 						<div class="navbar-toggle"><span></span><span></span><span></span></div>
@@ -45,6 +47,7 @@
 					
 				</div>
 			</header><!-- End / header -->
+
 
 
 
@@ -61,14 +64,14 @@
 						</div>
 						
 						<div class="form-01 consult-form js-consult-form__content col-md-6 " style="padding:20px 20px;float:left">
-							<h2 class="form-01__title" style="margin-bottom:30px;">请输入新闻内容</h2>
+							<h2 class="form-01__title" style="margin-bottom:30px;">原新闻内容</h2>
 							<form class="" >
 								<div class="form__item">
-									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_left"></textarea>
+									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_left" style="line-height:30px"></textarea>
 									<input id ="news_id_left" value="" type="hidden"></input>
 								</div>
 								<div class="form__button">
-									<input type="button" id="btn_left" class="btn btn-primary btn-w180" value="修改并评估" onclick="newsFn()" style="font-size:18px;"/>
+									<input type="button" id="btn_left" class="btn btn-primary btn-w180" value="提交评估" onclick="newsFn()" style="font-size:18px;"/>
 
 								</div>
 
@@ -83,7 +86,6 @@
 									<div class="progress">
 									  <div class="progress-bar" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{scores_percent.1}};">
 									  {{scores.1}}
-
 									  </div>
 									</div>
 									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">逻辑性</p>
@@ -92,6 +94,7 @@
 									  {{scores.2}}
 									
 									  </div>
+									
 									</div>
 									<p style="width:90px;float:left;font-size:20px; margin:-10px 0 0 0;">可信性</p>
 									<div class="progress">
@@ -158,10 +161,10 @@
 						</div>
 						
 						<div class="form-01 consult-form js-consult-form__content  col-md-6" style=" padding:20px 20px;float:left;margin-left:0px;">
-							<h2 class="form-01__title" style="margin-bottom:30px;">请输入新闻内容</h2>
+							<h2 class="form-01__title" style="margin-bottom:30px;">请输入对比新闻内容</h2>
 							<form class="" >
 								<div class="form__item">
-									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_right"></textarea>
+									<textarea rows="5"  placeholder="新闻内容" value="请输入新闻内容" id= "news_content_right"style="line-height:30px"></textarea>
 								</div>
 								<div class="form__button"><input id="btn_right" type="button" class="btn btn-primary btn-w180" value="提交评估" onclick="newsFn('right')" style="font-size:18px;"/>
 								<input id ="news_id_right" value="" type="hidden"></input>
