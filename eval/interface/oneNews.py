@@ -18,7 +18,7 @@ from .get_features_name import load_features_name
 from .preprocess import load_stopwords
 from .getSentimentFromTencent import get_content
 from sklearn.preprocessing import MinMaxScaler
-from gen_21dim_vector import get_emotion_value
+from .gen_21dim_vector import get_emotion_value
 
 """分词"""
 def seg(data):

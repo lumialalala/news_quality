@@ -13,17 +13,18 @@ import pandas as pd
 import numpy as np
 from sklearn.externals import joblib
 import io
+import os
 
 # 加载情感词典
 def _emotion_vocabulary():
     negative_words = []
-    with io.open('./doc/negationWords.txt', 'r',encoding='UTF-8') as src:
+    with io.open(os.getcwd()+'/doc/negationWords.txt', 'r',encoding='UTF-8') as src:
         lines = src.readlines()
         for line in lines:
             negative_words.append(line.strip())
 
     how_words = dict()
-    with io.open('./doc/intensifierWords.txt', 'r',encoding='UTF-8') as src:
+    with io.open(os.getcwd()+'/doc/intensifierWords.txt', 'r',encoding='UTF-8') as src:
         lines = src.readlines()
         for line in lines:
             how_word = line.strip().split()
@@ -54,12 +55,12 @@ def _get_negative_and_how_value(emotion_word, words, k_window=3):
 def get_emotion_value(words):
     positive_words = {}
     passive_words = {}
-    with io.open('./doc/negativeWords.txt', 'r',encoding='UTF-8') as src:
+    with io.open(os.getcwd()+'/doc/negativeWords.txt', 'r',encoding='UTF-8') as src:
         lines = src.readlines()
         for line in lines:
             aline = line.strip().split()
             passive_words[aline[0]] = aline[1]
-    with io.open('./doc/positiveWords.txt', 'r',encoding='UTF-8') as src:
+    with io.open(os.getcwd()+'/doc/positiveWords.txt', 'r',encoding='UTF-8') as src:
         lines = src.readlines()
         for line in lines:
             aline = line.strip().split()
