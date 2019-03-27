@@ -156,7 +156,7 @@
 		</div>
 		<!-- Vendors-->
 		<script type="text/javascript" src="static/vendors/_jquery/jquery.min.js"></script>
-		<!--<script type="text/javascript" src="static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+		<script type="text/javascript" src="static/vendors/imagesloaded/imagesloaded.pkgd.js"></script>
 		<script type="text/javascript" src="static/vendors/isotope-layout/isotope.pkgd.js"></script>
 		<script type="text/javascript" src="static/vendors/jquery.countdown/jquery.countdown.min.js"></script>
 		<script type="text/javascript" src="static/vendors/jquery.countTo/jquery.countTo.min.js"></script>
@@ -168,7 +168,7 @@
 		<script type="text/javascript" src="static/vendors/owl.carousel/owl.carousel.js"></script>
 		<script type="text/javascript" src="static/vendors/jquery.waypoints/jquery.waypoints.min.js"></script>
 		<script type="text/javascript" src="static/vendors/menu/menu.min.js"></script>
-		<script type="text/javascript" src="static/vendors/smoothscroll/SmoothScroll.min.js"></script>-->
+		<script type="text/javascript" src="static/vendors/smoothscroll/SmoothScroll.min.js"></script>
 		<!-- App-->
 		<script type="text/javascript" src="static/js/main.js"></script>
 		<script src="static/js/jPages.min.js"></script>
@@ -182,28 +182,28 @@ function evaluateFn(w){
 	var t = $.trim($('#'+w).attr('title'));
 	var v = $.trim($('#'+w).attr('id'));
 	//alert(v);
-	 //window.location.href='re2.html?text='+t;
-	//window.open('re2.html?text='+t+'&news_id='+v);
+	//window.location.href='re2.html?text='+t;
+	window.open('re2.html?text='+t+'&news_id='+v);
 
 	//var v = $.trim($('#'+w).attr('val'));
 
 	//v = v || 0;
-	evalval = w+'@_@'+t;
+	//evalval = w+'@_@'+t;
 
-	win_sub = window.open('re2.html');
-	win_sub.onload = function() {
-		win_sub.initFN(evalval);
-	};	 
+	//win_sub = window.open('re2.html');
+	//win_sub.onload = function() {
+	//	win_sub.initFN(evalval);
+	//};	 
 }
 
-function deleteF2(w){
+function deleteFn(w){
 	var v = $.trim($('#'+w).attr('id'));
 	window.location.href='/re2/delete?news_id='+v;
 	console.log("删除成功！")
 	alert("删除成功！")
 }
 
-function deleteFn(w){
+function deleteFn2(w){
 	var v = $.trim($('#'+w).attr('id'));
  	if(confirm("您确定要删除么？")){
 		window.location.href='/re2/delete?news_id='+v;
