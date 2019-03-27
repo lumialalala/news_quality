@@ -82,9 +82,10 @@ def re(request):
 		scores_percent.append(scores[i]/100.0)
 	scores_percent = [format(each, '.1%') for each in scores_percent]
 	
-	t = datetime.now()
-	timestamp = t.strftime('%Y-%m-%d %H:%M:%S')
-	news_id = t.strftime('%Y%m%d%H%M%S')
+	
+	t = time.localtime()
+	timestamp = time.strftime('%Y-%m-%d %H:%M:%S',t)
+	news_id = time.strftime('%Y%m%d%H%M%S',t)
 	news= News(news_id = news_id)
 	#对content去掉空格		
 	news.content = form.replace(" ","")
@@ -144,8 +145,8 @@ def ajax_list(request):
 		result.append(scores_percent[i])
 
 
-	t = datetime.now()
-	timestamp = t.strftime('%Y-%m-%d %H:%M:%S')
+	t = time.localtime()
+	timestamp = time.strftime('%Y-%m-%d %H:%M:%S',t)
 	exp= "示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！"
 	if(content == exp):
 		return JsonResponse(json.dumps(result), content_type='application/json',safe = False)
@@ -159,7 +160,7 @@ def ajax_list(request):
 
 	# 如果news_id不存在，则根据时间生成news_id，并存入数据库
 	else:
-		news_id = t.strftime('%Y%m%d%H%M%S')
+		news_id = time.strftime('%Y%m%d%H%M%S',t)
 		news= News(news_id = news_id)
 		#对content去掉空格		
 		news.content = content.replace(" ","")
