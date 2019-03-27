@@ -332,11 +332,33 @@
 	} 
 
 	$(document).ready(function(){
-		initFN();
+		//initFN();
 	});
 
 	//-------------------------------
-	function initFN(){
+	function initFN(evalval){
+		if(window.opener){
+			//console.log(window.opener);
+			//console.log(window.opener.evalval);
+			//var evalval = window.opener.evalval;
+			if(evalval){
+				if(evalval.indexOf('@_@')>=0){
+					var e_arr = evalval.split('@_@');//id,content,forward,comment,praise
+					// id...
+					$("#news_id_left").val(e_arr[0]);
+					$('#news_content_left').html(e_arr[1]);
+				}else{
+					$("#news_id_left").val('');
+					$('#news_content_left').html(evalval);
+				}
+			
+				
+				//$('#zzp_'+f).val('转发数：'+e_arr[1]+' 评论数：'+e_arr[2]+' 点赞数：'+e_arr[3]);
+				newsFn();
+			}
+		}
+	}
+	function initFN2(){
 		var t = getNewsParmsFn();
 	
 		if(t){

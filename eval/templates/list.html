@@ -115,11 +115,11 @@
 					    
 					    {% for each in re%}
 					    	  <tr>
-					          <td>{{each.0}}</th>
+					          <td title={{each.1.news_id}} style="text-align: center">{{each.0}}</th>
 					          <td id={{each.1.news_id}} title={{each.1.content}} val={{each.1.score}} >{{each.1.content}}</td>
-					          <td >{{each.1.timeStamp}}</td>
-					          <td>{{each.1.score}}</td>
-					          <td>
+					          <td style="text-align: center">{{each.1.timeStamp}}</td>
+					          <td style="text-align: center">{{each.1.score}}</td>
+					          <td style="text-align: center">
 					          	<input type="button" value="查看" onclick="evaluateFn({{each.1.news_id}})" />
 					          	<input type="button" value="删除" onclick="deleteFn({{each.1.news_id}})" />
 					          </td>
@@ -175,15 +175,26 @@
 	</body>
 </html>
 <script type="text/javascript">
+var win_sub;
+var evalval;
 function evaluateFn(w){
 	//var t = $.trim($('#'+w).text());
 	var t = $.trim($('#'+w).attr('title'));
 	var v = $.trim($('#'+w).attr('id'));
 	//alert(v);
 	 //window.location.href='re2.html?text='+t;
-	window.open('re2.html?text='+t+'&news_id='+v);
-	 
-	}
+	//window.open('re2.html?text='+t+'&news_id='+v);
+
+	//var v = $.trim($('#'+w).attr('val'));
+
+	//v = v || 0;
+	evalval = w+'@_@'+t;
+
+	win_sub = window.open('re2.html');
+	win_sub.onload = function() {
+		win_sub.initFN(evalval);
+	};	 
+}
 
 function deleteF2(w){
 	var v = $.trim($('#'+w).attr('id'));
@@ -201,8 +212,7 @@ function deleteFn(w){
 	}
 }
 
-var win_sub;
-var evalval;
+
 function evaluateFn2(w,f){
 	var v = $.trim($('#'+w).attr('val'));
 	var t = $.trim($('#'+w).attr('title'));

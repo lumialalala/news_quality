@@ -117,6 +117,10 @@
 	</body>
 
 <script type="text/javascript">
+
+var win_sub;
+var evalval;
+
 function checkall(){
 	var name = $.trim($("#news_content").val());
 	console.log(name);
@@ -128,7 +132,13 @@ function checkall(){
 	    //return;
 	}
 	var t = $.trim($("#news_content").val());
-	window.open('re2.html?text='+t);
+	//window.open('re2.html?text='+t);
+
+	evalval = t;
+	win_sub = window.open('re2.html');
+	win_sub.onload = function() {
+		win_sub.initFN(t);
+	};	
 }
 function evaluateFn(w){
 	//var t = $.trim($('#'+w).text());
