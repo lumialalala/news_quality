@@ -6,14 +6,13 @@ import numpy as np
 import pandas as pd
 import logging
 import sys
-import time
 from datetime import datetime
 from django.http import JsonResponse
 import json
 from django.shortcuts import render_to_response,HttpResponseRedirect
 from django.template import RequestContext
 from .models import News
-import datetime
+import pytz
 
 
 sys.path.append("/eval/interface/")
@@ -83,9 +82,10 @@ def re(request):
 	scores_percent = [format(each, '.1%') for each in scores_percent]
 	
 	
-	t = time.localtime()
-	timestamp = time.strftime('%Y-%m-%d %H:%M:%S',t)
-	news_id = time.strftime('%Y%m%d%H%M%S',t)
+	tz = pytz.timezone('Asia/Shanghai')
+	t = datetime.now(tz)
+	timestamp = t.strftime('%Y-%m-%d %H:%M:%S')
+	news_id = t.strftime('%Y%m%d%H%M%S')
 	news= News(news_id = news_id)
 	#对content去掉空格		
 	news.content = form.replace(" ","")
@@ -144,23 +144,24 @@ def ajax_list(request):
 	for i in range(1,9):
 		result.append(scores_percent[i])
 
-
-	t = time.localtime()
-	timestamp = time.strftime('%Y-%m-%d %H:%M:%S',t)
-	exp= "示例： #2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！"
+	#获得当前时区的时间
+	tz = pytz.timezone('Asia/Shanghai')
+	t = datetime.now(tz)
+	timestamp = t.strftime('%Y-%m-%d %H:%M:%S')
+	exp= "#2016里约奥运#【此刻，一起传递！为中国女排！我们是冠！军！转】里约奥运会女排决赛，中国3-1战胜塞尔维亚，夺得冠军！激动人心的比赛！女排精神，就是永！不！言！败！此刻，一起为中国姑娘喝彩！为郎平喝彩！"
 	if(content == exp):
 		return JsonResponse(json.dumps(result), content_type='application/json',safe = False)
 	# 如果news_id已经存在，则对该数据进行更新，防止某些字段不存在
 	
 	if(news_id):
 		queryset = News.objects(news_id = news_id)
-		queryset[0].update(content = content, timeStamp = timestamp, score = scores[0],readability = scores[1],logic = scores[2],
+		queryset[0].update(content = content, score = scores[0],readability = scores[1],logic = scores[2],
 			persuasive = scores[3],formality = scores[4],interactivity = scores[5],
 			interesting = scores[6],moving = scores[7],intergrity=scores[8])
 
 	# 如果news_id不存在，则根据时间生成news_id，并存入数据库
 	else:
-		news_id = time.strftime('%Y%m%d%H%M%S',t)
+		news_id = t.strftime('%Y%m%d%H%M%S')
 		news= News(news_id = news_id)
 		#对content去掉空格		
 		news.content = content.replace(" ","")

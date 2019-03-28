@@ -196,14 +196,14 @@ function evaluateFn(w){
 	//};	 
 }
 
-function deleteFn(w){
+function deleteFn2(w){
 	var v = $.trim($('#'+w).attr('id'));
 	window.location.href='/re2/delete?news_id='+v;
 	console.log("删除成功！")
 	alert("删除成功！")
 }
 
-function deleteFn2(w){
+function deleteFn(w){
 	var v = $.trim($('#'+w).attr('id'));
  	if(confirm("您确定要删除么？")){
 		window.location.href='/re2/delete?news_id='+v;
